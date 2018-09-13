@@ -7,9 +7,11 @@ COPY ./ /workspace/
 WORKDIR /workspace/
 RUN yarn install
 
-ENV PORT 8000
+CMD yarn build
 
-EXPOSE 8000
+EXPOSE 80
 
-CMD yarn start
 
+FROM nginx
+
+CMD ["nginx", "-g", "daemon off;"]
