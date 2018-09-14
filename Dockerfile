@@ -12,7 +12,7 @@ CMD yarn build
 FROM nginx
 MAINTAINER qiangyun.wu 842269153@qq.com
 
-COPY --from=node-build /workspace/build/dist /usr/share/nginx/html
+COPY --from=node-build /workspace/dist /usr/share/nginx/html
 
 EXPOSE 80
 
