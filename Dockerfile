@@ -6,8 +6,7 @@ RUN npm install -g yarn --registry=https://registry.npm.taobao.org
 COPY ./ /workspace/
 WORKDIR /workspace/
 RUN yarn install
-
-CMD yarn build
+RUN yarn build
 
 FROM nginx
 MAINTAINER qiangyun.wu 842269153@qq.com
