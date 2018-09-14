@@ -1,5 +1,5 @@
+FROM node as node-build
 MAINTAINER qiangyun.wu 842269153@qq.com
-FROM node
 
 RUN npm install -g yarn --registry=https://registry.npm.taobao.org
 
@@ -10,8 +10,9 @@ RUN yarn install
 CMD yarn build
 
 FROM nginx
+MAINTAINER qiangyun.wu 842269153@qq.com
 
-COPY --from=0 /workspace/build/dist /usr/share/nginx/html
+COPY --from=node-build /workspace/build/dist /usr/share/nginx/html
 
 EXPOSE 80
 
